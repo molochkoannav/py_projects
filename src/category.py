@@ -19,13 +19,13 @@ class Category:
         Category.product_count += 1
 
     @property
-    def products(self):
+    def products_obj(self):
         """Геттер для получения списка продуктов"""
         return self.__products
 
     @property
-    def printing_products_list(self):
-        """Метод для вывода списка продуктов в категории"""
+    def products(self):
+        """Геттер для получения списка продуктов """
         str_products = ""
         for product in self.__products:
             str_products += f"{product.name},  {product.price} руб. Остаток: {product.quantity} шт\n"

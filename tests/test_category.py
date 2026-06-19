@@ -9,8 +9,8 @@ def test_category_init(category1):
         == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
     )
 
-    assert category1.products[0].name == "iPhone 13"
-    assert category1.products[1].name == "Samsung Galaxy S22"
+    assert category1.products_obj[0].name == "iPhone 13"
+    assert category1.products_obj[1].name == "Samsung Galaxy S22"
 
 
 def test_product_count(category1):
@@ -21,18 +21,18 @@ def test_product_count(category1):
 def test_category_add_product(category1, product1):
     """Тест на правильность добавления через add_product"""
     category1.add_product(product1)
-    assert category1.products[3].name == "iPhone 13"
-    assert len(category1.products) == 4
+    assert category1.products_obj[3].name == "iPhone 13"
+    assert len(category1.products_obj) == 4
 
 
-def test_products_property(category1):
+def test_products_obj(category1):
     """Тест на правильность работы property products"""
-    assert category1.products[0].name == "iPhone 13"
-    assert category1.products[1].name == "Samsung Galaxy S22"
-    assert len(category1.products) == 3
+    assert category1.products_obj[0].name == "iPhone 13"
+    assert category1.products_obj[1].name == "Samsung Galaxy S22"
+    assert len(category1.products_obj) == 3
 
 
-def test_printing_products_list():
+def test_products():
     """Тест на правильность вывода строки с продуктами"""
     category = Category("Смартфоны", "Смартфоны, как средство коммуникации", [])
-    assert category.printing_products_list == ""
+    assert category.products == ""
