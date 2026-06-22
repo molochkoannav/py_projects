@@ -36,8 +36,8 @@ def test_create_obj_from_json():
 
     assert len(result) == 1
     assert isinstance(result[0], Category)
-    assert len(result[0].products) == 1
-    assert isinstance(result[0].products[0], Product)
+    assert len(result[0].products_obj) == 1
+    assert isinstance(result[0].products_obj[0], Product)
 
 
 def test_create_obj_from_json_empty():
@@ -52,4 +52,4 @@ def test_create_obj_from_json_empty():
 
     assert len(result) == 1
     assert isinstance(result[0], Category)
-    assert len(result[0].products) == 0
+    assert len(result[0].products_obj) == 0
