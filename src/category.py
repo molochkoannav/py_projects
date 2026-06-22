@@ -14,13 +14,8 @@ class Category:
         Category.product_count += len(products) if products else 0
 
     def __str__(self):
-        total_quantity = 0
-        for product in self.products:
-            if hasattr(product, 'quantity'):
-                total_quantity += product.quantity
-            else:
-                print(f"Предупреждение: {product} не является объектом продукта")
-        return f"{self.name}, количество продуктов: {total_quantity} шт."
+        total_quantity = sum([product.quantity for product in self.__products])
+        return f"{self.name}, {self.description}, количество продуктов: {total_quantity} шт."
 
     def add_product(self, product):
         """Метод для добавления продуктов в категорию"""
@@ -34,9 +29,8 @@ class Category:
 
     @property
     def products(self):
-        """Геттер для получения списка продуктов """
+        """Геттер для получения списка продуктов"""
         str_products = ""
         for product in self.__products:
-            str_products += f"Ъ{str(product)} шт\n"
+            str_products += f"{str(product)} шт\n"
         return str_products
-

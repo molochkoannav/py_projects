@@ -66,4 +66,3 @@ class Product:
                 print("Изменение цены отменено")
         else:
             self.__price = new_price
-
