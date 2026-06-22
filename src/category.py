@@ -13,6 +13,15 @@ class Category:
         self.__products = products if products else []
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        total_quantity = 0
+        for product in self.products:
+            if hasattr(product, 'quantity'):
+                total_quantity += product.quantity
+            else:
+                print(f"Предупреждение: {product} не является объектом продукта")
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
+
     def add_product(self, product):
         """Метод для добавления продуктов в категорию"""
         self.__products.append(product)
@@ -28,5 +37,6 @@ class Category:
         """Геттер для получения списка продуктов """
         str_products = ""
         for product in self.__products:
-            str_products += f"{product.name},  {product.price} руб. Остаток: {product.quantity} шт\n"
+            str_products += f"Ъ{str(product)} шт\n"
         return str_products
+
