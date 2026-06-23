@@ -59,3 +59,30 @@ def test_set_price_decrease_with_monkeypatch(monkeypatch):
     monkeypatch.setattr("builtins.input", lambda _: "n")
     product.price = 600.0
     assert product.price == 800.0  # Цена не изменилась
+
+
+def test_str():
+    """Тест на вывод информации о товаре"""
+    product = Product("iPhone 15", "Смартфон Apple iPhone 15", 150000.0, 10)
+    assert str(product) == "iPhone 15, 150000.0 руб. Остаток: 10 шт."
+
+
+def test_mul():
+    """Тест на расчет общей стоимости продукта на складе"""
+    product = Product("iPhone 15", "Смартфон Apple iPhone 15", 150000.0, 10)
+    other = 10
+    assert product * 2 * other == 30000000.0
+    other = None
+    assert product * 0.5 == 750000.0
+    other = "string"
+    try:
+        product * other
+        assert False, "Ожидалось исключение TypeError"
+    except TypeError as e:
+        assert str(e) == "Нельзя умножить Product с str"
+
+
+def test_add():
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    assert product1 + product2 == 2580000.0

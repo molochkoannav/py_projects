@@ -12,6 +12,24 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __mul__(self, other=None):
+        """Возвращает общую стоимость продукта на складе"""
+        if other is None:
+            return self.__price * self.quantity
+        elif isinstance(other, (int, float)):
+            return self.__price * self.quantity * other
+        else:
+            raise TypeError(f"Нельзя умножить Product с {type(other).__name__}")
+
+    def __add__(self, other):
+        """Сложение продуктов по общей стоимости"""
+        if isinstance(other, Product):
+            return (self.price * self.quantity) + (other.price * other.quantity)
+        return NotImplemented
+
     @classmethod
     def new_product(cls, product_data: dict, existing_products: list = None):
         """Метод добавления продуктов с проверкой на дублирование"""

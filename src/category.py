@@ -13,6 +13,10 @@ class Category:
         self.__products = products if products else []
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        total_quantity = sum([product.quantity for product in self.__products])
+        return f"{self.name}, {self.description}, количество продуктов: {total_quantity} шт."
+
     def add_product(self, product):
         """Метод для добавления продуктов в категорию"""
         self.__products.append(product)
@@ -25,8 +29,8 @@ class Category:
 
     @property
     def products(self):
-        """Геттер для получения списка продуктов """
+        """Геттер для получения списка продуктов"""
         str_products = ""
         for product in self.__products:
-            str_products += f"{product.name},  {product.price} руб. Остаток: {product.quantity} шт\n"
+            str_products += f"{str(product)} шт\n"
         return str_products
