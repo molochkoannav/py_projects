@@ -77,18 +77,20 @@ def category2():
             )
         ],
     )
+
+
 @pytest.fixture
 def smartphone1():
     return Smartphone(
-                      name="Iphone 15",
-                      description="512GB, ""Gray space",
-                      price=210000.0,
-                      quantity=8,
-                      efficiency=98.2,
-                      model="15",
-                      memory=512,
-                      color="Gray space"
-                      )
+        name="Iphone 15",
+        description="512GB, " "Gray space",
+        price=210000.0,
+        quantity=8,
+        efficiency=98.2,
+        model="15",
+        memory=512,
+        color="Gray space",
+    )
 
 
 @pytest.fixture
@@ -101,20 +103,22 @@ def smartphone2():
         efficiency=90.3,
         model="Note 11",
         memory=1024,
-        color="Синий"
+        color="Синий",
     )
+
 
 @pytest.fixture
 def lowngrass1():
     return LawnGrass(
-                name="Газонная трава",
-                description="Элитная трава для газона",
-                price=500.0,
-                quantity=20,
-                country="Россия",
-                germination_period="7 дней",
-                color="Зеленый"
+        name="Газонная трава",
+        description="Элитная трава для газона",
+        price=500.0,
+        quantity=20,
+        country="Россия",
+        germination_period="7 дней",
+        color="Зеленый",
     )
+
 
 @pytest.fixture
 def lowngrass2():
@@ -125,5 +129,5 @@ def lowngrass2():
         quantity=15,
         country="США",
         germination_period="5 дней",
-        color="Темно-зеленый"
+        color="Темно-зеленый",
     )
