@@ -131,11 +131,3 @@ def lowngrass2():
         germination_period="5 дней",
         color="Темно-зеленый",
     )
-@pytest.fixture
-def product4():
-    return Product(
-        name="Бракованный товар",
-        description="Неверное количество",
-        price=1000.0,
-        quantity= 0
-    )

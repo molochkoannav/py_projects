@@ -1,4 +1,4 @@
-from itertools import product
+import pytest
 
 from src.product import Product
 
@@ -89,5 +89,8 @@ def test_add():
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     assert product1 + product2 == 2580000.0
 
-def test_product_without_quantity(product4):
-    assert product4.quantity == 0
+
+def test_product_without_quantity():
+    """Тест: продукт с нулевым количеством должен вызывать ValueError"""
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product(name="Бракованный товар", description="Неверное количество", price=1000.0, quantity=0)
