@@ -47,3 +47,13 @@ def test_str():
     category1 = Category("Смартфоны", "Смартфоны, как средство не только коммуникации", [product1, product2, product3])
 
     assert str(category1) == "Смартфоны, Смартфоны, как средство не только коммуникации, количество продуктов: 18 шт."
+
+
+def test_middle_price():
+    """Тест на правильность вычисления средней цены"""
+    product1 = Product("iPhone 15", "Смартфон Apple iPhone 15", 150000.0, 10)
+    product2 = Product("Samsung Galaxy", "Смартфон Samsung", 100000.0, 5)
+    product3 = Product("Xiaomi", "Смартфон Xiaomi", 50000.0, 3)
+    category1 = Category("Смартфоны", "Смартфоны, как средство не только коммуникации", [product1, product2, product3])
+
+    assert category1.middle_price() == 100000.0
